@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { bookController } from "./book.controller";
+import { authMiddleware } from "../../middleware/auth.middleware";
 
 const bookRouter = Router();
 
@@ -11,9 +12,15 @@ const {
   deleteBookController,
 } = bookController;
 
+const { verifyToken, authorizedRoles } = authMiddleware;
 bookRouter.post("/", createBook);
 
-bookRouter.get("/", getBooksController);
+bookRouter.get(
+  "/",
+  verifyToken,
+  authorizedRoles("admin", "member"),
+  getBooksController,
+);
 
 bookRouter.get("/:id", getBookController);
 

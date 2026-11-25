@@ -8,7 +8,6 @@ const config = {
   port: process.env.PORT,
   databaseConnection: process.env.DATABASE_URL,
   JWTAccessToken: process.env.JWT_ACCCESS_SECRET,
-  JWTRefreshToken: process.env.JWT_REFRESH_SECRET,
 };
 
 export default config;
