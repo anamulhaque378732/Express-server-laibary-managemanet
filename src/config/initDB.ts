@@ -13,5 +13,5 @@ role VARCHAR(25) CHECK(role IN ('admin','member')) DEFAULT 'member'
 
 export const initDatabase = async () => {
   await pool.query(createTbaleQuery);
-  console.log("Database created");
+  console.log("Database connected");
 };
