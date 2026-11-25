@@ -1,6 +1,5 @@
 import { RequestHandler } from "express";
 import { authService } from "./auth.service";
-import { resolve } from "dns";
 
 const { registerUser, loginUser } = authService;
 

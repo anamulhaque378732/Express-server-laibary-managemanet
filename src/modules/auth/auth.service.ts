@@ -34,6 +34,8 @@ const loginUser = async (email: string, password: string) => {
     throw error;
   }
 
+  user.password = "";
+
   const token = jwtHelpers.genarateToken({
     id: user.id,
     email: user.email,
